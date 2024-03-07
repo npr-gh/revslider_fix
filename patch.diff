@@ -1,0 +1,20 @@
+--- a/includes/framework/functions-wordpress.class.php
++++ b/includes/framework/functions-wordpress.class.php
+@@ -255,7 +255,7 @@ class RevSliderFunctionsWP {
+         * register widget (must be class)
+         */
+        public static function registerWidget($widgetName){
+-               add_action('widgets_init', create_function('', 'return register_widget("'.$widgetName.'");'));
++               add_action('widgets_init', function() use ($widgetName){return register_widget($widgetName); });
+        }
+
+        /**
+@@ -911,7 +911,7 @@ class RevSliderFunctionsWP {
+
+                if(!empty($arrErrors)){
+                        foreach($arrErrors as $key=>$arr){
+-                               $strErrors = implode($arr,",");
++                               $strErrors = implode(",",$arr);
+                        }
+
+                        RevSliderFunctions::throwError("getCategoriesHtmlList error: ".$strErrors);
