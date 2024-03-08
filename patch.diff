@@ -18,3 +18,32 @@
                         }
 
                         RevSliderFunctions::throwError("getCategoriesHtmlList error: ".$strErrors);
+                        
+--- a/includes/output.class.php
++++ b/includes/output.class.php
+@@ -3621,7 +3621,6 @@ class RevSliderOutput {
+
+                                switch($action){
+                                        case 'none':
+-                                               continue;
+                                        break;
+                                        case 'link':
+                                                //if post based, replace {{}} with correct info
+
+
+--- a/includes/operations.class.php.bak
++++ b/includes/operations.class.php
+@@ -2719,11 +2719,11 @@ ob_end_clean();
+                                                                                        break;
+                                                                                        case 'youtube':
+                                                                                                $infos['id'] = 'external';
+-                                                                                               if(!isset($layer['video_data']->id) || empty($layer['video_data']->id)) continue;
++                                                                                               if(!isset($layer['video_data']->id) || empty($layer['video_data']->id)) break;
+                                                                                                $used_videos[$do_ssl.'//www.youtube.com/watch?v='.$layer['video_data']->id] = $infos;
+                                                                                        break;
+                                                                                        case 'vimeo':
+-                                                                                               if(!isset($layer['video_data']->id) || empty($layer['video_data']->id)) continue;
++                                                                                               if(!isset($layer['video_data']->id) || empty($layer['video_data']->id)) break;
+                                                                                                $infos['id'] = 'external';
+                                                                                                $used_videos[$do_ssl.'//vimeo.com/'.$layer['video_data']->id] = $infos;
+                                                                                        break;
