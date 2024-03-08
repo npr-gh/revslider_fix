@@ -31,7 +31,7 @@
                                                 //if post based, replace {{}} with correct info
 
 
---- a/includes/operations.class.php.bak
+--- a/includes/operations.class.php
 +++ b/includes/operations.class.php
 @@ -2719,11 +2719,11 @@ ob_end_clean();
                                                                                         break;
